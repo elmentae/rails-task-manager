@@ -1,0 +1,12 @@
+<h1>My tasks for today:</h1>
+<ul style="list-style-type: none">
+  <% @tasks.each do |task| %>
+    <li><%= check_box_tag(task.title, value = 1, checked = task.completed) %><%= link_to task.title, task_display_path(task["id"].to_i) %> <%= link_to "🚮", task_display_path(task), method: "delete" %></li>    
+  <% end %>
+</ul>
+<br>
+<hr>
+<br>
+<div>
+  <p><%= link_to "Create a new task!", task_new_path %></p>
+</div>
